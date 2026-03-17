@@ -146,7 +146,7 @@ alpha_features = alpha_1.permute(1, 2, 0).numpy()
 pixels_flat = alpha_features.reshape(h * w, nb_atomes)
 
 n_clusters = 2
-kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=2)
+kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
 labels_flat = kmeans.fit_predict(pixels_flat)
 segmentation_map = labels_flat.reshape(h, w)
 
