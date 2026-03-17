@@ -35,7 +35,7 @@ class MultilayerModel(BaseModel):
         self.ckpt = ckpt
         if self.ckpt is not None:
             logger.info(f"Loading ckpt {self.ckpt!r}")
-            d = torch.load(to_absolute_path(self.ckpt))
+            d = torch.load(to_absolute_path(self.ckpt), map_location='cpu')
             self.load_state_dict(d["state_dict"])
 
     def init_layers(self):
